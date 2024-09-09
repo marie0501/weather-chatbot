@@ -1,11 +1,6 @@
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-OPENWEATHERMAP_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
-
-
+# Base URL
 BASE_URL = "https://marie0501-flowise-weather-chatbot.hf.space/api/v1"
 SESSION_ID = "llm-course"
 
