@@ -1,0 +1,26 @@
+services:
+  flowise:
+    image: flowiseai/flowise:latest
+    container_name: flowise-app
+    ports:
+      - "3000:3000"  
+    environment:
+      - LOG_LEVEL=debug
+      - APIKEY_PATH=/root/.flowise
+      - SECRETKEY_PATH=/root/.flowise
+      - LOG_PATH=/root/.flowise/logs
+      - BLOB_STORAGE_PATH=/root/.flowise/storage
+      - DATABASE_PATH=/root/.flowise
+    volumes:
+      - ./src/.flowise:/root/.flowise
+    restart: unless-stopped
+
+  streamlit:
+    build: .
+    container_name: streamlit-app
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+
+
+  

@@ -1,0 +1,9 @@
+{
+  "id":"5711b7d8-a3de-49df-8649-eced6eda47b3",
+  "name": "get_location_current_weather",
+  "description": "This tool returns the current weather conditions in the location given.",
+  "color": "linear-gradient(rgb(98,0,147), rgb(9,217,43))",
+  "iconSrc": "",
+  "schema": "[{\"id\":1,\"property\":\"location\",\"description\":\"location given\",\"type\":\"string\",\"required\":false}]",
+  "func": "\nconst fetch = require('node-fetch');\nconst url = 'https://api.openweathermap.org/data/2.5/weather?q='+$location+'&appid=8786d4e1b98051572d4c349d2e16bb34&units=imperial';\nconst options = {\n    method: 'GET',\n    headers: {\n        'Content-Type': 'application/json'\n    }\n};\ntry {\n    const response = await fetch(url, options);\n    const text = await response.text();\n    return text;\n} catch (error) {\n    console.error(error);\n    return '';\n}"
+}

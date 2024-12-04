@@ -1,0 +1,9 @@
+{
+  "id": "88ec7517-da33-407d-baef-4b54c3970072",
+  "name": "get_current_date",
+  "description": "This tool returns the current date. It should be used to know current year, month and day.",
+  "color": "linear-gradient(rgb(184,129,238), rgb(82,88,182))",
+  "iconSrc": "",
+  "schema": "[]",
+  "func": "\nconst fetch = require('node-fetch');\nconst now = new Date();\nconst year = now.getFullYear();\nconst month = String(now.getMonth() + 1).padStart(2, '0');  // Months are zero-based\nconst day = String(now.getDate()).padStart(2, '0');\nconst hours = String(now.getHours()).padStart(2, '0');\nconst minutes = String(now.getMinutes()).padStart(2, '0');\nconst seconds = String(now.getSeconds()).padStart(2, '0');\n\nreturn '${year}-${month}-${day} ${hours}:${minutes}:${seconds}';"
+}
